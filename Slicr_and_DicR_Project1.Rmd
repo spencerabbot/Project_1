@@ -10,7 +10,7 @@ knitr::opts_chunk$set(echo = TRUE)
 setwd("/Users/Spencer/Project_1")
 ```
 
-```{r}
+```{r citystats}
 library(stats)
 citydata <- data.frame(read.csv("CityData.csv"))
 str(citydata)
@@ -18,7 +18,7 @@ citydata$F500_HQ <- as.factor(citydata$F500_HQ)
 ```
 
 
-```{r pressure}
+```{r anova}
 plot(Amazon_HQIndex ~ F500_HQ, data=citydata)
 model.degree <- aov(Amazon_HQIndex~F500_HQ, data = citydata)
 summary(model.degree)
@@ -26,8 +26,10 @@ TukeyHSD(model.degree)
 ```
 
 ```{r map}
+#install maps package
 install.packages("maps")
 
+#Read in City Lat Long Data
 citylatlong <- data.frame(read.csv("citylatlong.csv"))
 str(citylatlong)
 map <- get_map(location = 'united states', 
