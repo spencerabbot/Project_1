@@ -24,3 +24,43 @@ model.degree <- aov(Amazon_HQIndex~F500_HQ, data = citydata)
 summary(model.degree)
 TukeyHSD(model.degree)
 ```
+
+```{r map}
+install.packages("maps")
+
+citylatlong <- data.frame(read.csv("citylatlong.csv"))
+str(citylatlong)
+map <- get_map(location = 'united states', 
+zoom = 4, source = 'stamen') ggmap(map, fullpage = TRUE);
+
+# call libs for maps and plotting already installed 
+library(ggplot2)
+library(maps)
+
+#load us map data
+all_states <- map_data("state")
+
+#plot all states with ggplot
+p <- ggplot()
+p <- p + geom_polygon( data=all_states, 
+aes(x=long, y=lat, group = group),colour="white", fill="grey10" )
+p;
+
+# plot data points (lat/long) to US map
+p + geom_point(data=citylatlong, 
+aes(y=LAT, x=LONG, color=Population), size = 4) +
+  ggtitle("US Metro Cities with population over 1 million")+
+    theme_bw() +
+  theme( plot.title=element_text(hjust=0.5),
+         axis.line = element_blank(),
+    panel.grid.major = element_blank(),
+    panel.grid.minor = element_blank(),
+    panel.border = element_blank(),
+    panel.background = element_blank(),
+    axis.text.y =element_blank(),
+    axis.text.x=element_blank(),
+    axis.ticks.y=element_blank(),
+    axis.ticks.x=element_blank()) +
+    xlab("") + 
+    ylab("")
+```

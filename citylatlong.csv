@@ -1,0 +1,51 @@
+MSA,CODE,LAT,LONG,Population
+New York,LGA,40.77719879,-73.87259674,Over 10 million
+Los Angeles-Long Beach-Anaheim,LAX,33.94250107,-118.4079971,Over 10 million
+Chicago,ORD,41.97859955,-87.90480042,5 - 10 million
+Dallas-Fort Worth,DFW,32.89680099,-97.03800201,5 - 10 million
+Houston,IAH,29.9843998,-95.34140015,5 - 10 million
+Washington,IAD,38.94449997,-77.45580292,5 - 10 million
+Philadelphia,PHL,39.87189865,-75.2410965,5 - 10 million
+Miami-Fort Lauderdale,MIA,25.79319954,-80.29060364,5 - 10 million
+Atlanta,ATL,33.63669968,-84.42810059,5 - 10 million
+Boston,BOS,42.36429977,-71.00520325,2.5 - 5 million
+San Francisco,SFO,37.61899948,-122.375,2.5 - 5 million
+Phoenix,PHX,33.43429947,-112.012001,2.5 - 5 million
+Riverside,ONT,34.05599976,-117.6009979,2.5 - 5 million
+Detroit,DTW,42.21239853,-83.35340118,2.5 - 5 million
+Seattle,SEA,47.44900131,-122.3089981,2.5 - 5 million
+Minneapolis-St Paul,MSP,44.88199997,-93.22180176,2.5 - 5 million
+San Diego,SAN,32.73360062,-117.1900024,2.5 - 5 million
+Tampa,TPA,27.97550011,-82.53320313,2.5 - 5 million
+Denver,DEN,39.86169815,-104.6729965,2.5 - 5 million
+St. Louis,STL,38.74869919,-90.37000275,2.5 - 5 million
+Baltimore,BWI,39.17539978,-76.66829681,2.5 - 5 million
+Charlotte,CLT,35.2140007,-80.94309998,1 - 2.5 million
+Orlando,MCO,28.42939949,-81.30899811,1 - 2.5 million
+San Antonio,SAT,29.53370094,-98.46980286,1 - 2.5 million
+Portland,PDX,45.58869934,-122.5979996,1 - 2.5 million
+Pittsburgh,PIT,40.49150085,-80.23290253,1 - 2.5 million
+Sacramento,SAC,38.51250076,-121.4929962,1 - 2.5 million
+Cincinnati,LUK,39.10329819,-84.41860199,1 - 2.5 million
+Las Vegas,LAS,36.08010101,-115.1520004,1 - 2.5 million
+Kansas City,MCI,39.2976,-94.713898,1 - 2.5 million
+Austin,AUS,30.19449997,-97.66989899,1 - 2.5 million
+Cleveland,CLE,41.4117012,-81.84980011,1 - 2.5 million
+Columbus,CMH,39.9980011,-82.89189911,1 - 2.5 million
+Indianapolis,IND,39.7173,-86.294403,1 - 2.5 million
+San Jose,SJC,37.36259842,-121.9290009,1 - 2.5 million
+Nashville,BNA,36.12450027,-86.67819977,1 - 2.5 million
+Virginia Beach,ORF,36.89459991,-76.20120239,1 - 2.5 million
+Providence,PVD,41.73260117,-71.42040253,1 - 2.5 million
+Milwaukee,MKE,42.94720078,-87.89659882,1 - 2.5 million
+Jacksonville,JAX,30.49410057,-81.68789673,1 - 2.5 million
+Oklahoma City,OKC,35.39310074,-97.60070038,1 - 2.5 million
+Memphis,MEM,35.04240036,-89.97669983,1 - 2.5 million
+Raleigh,RDU,35.87760162,-78.78749847,1 - 2.5 million
+Louisville-Jefferson County,LOU,38.228,-85.66369629,1 - 2.5 million
+Richmond,RIC,37.50519943,-77.31970215,1 - 2.5 million
+Hartford,BDL,41.93889999,-72.68319702,1 - 2.5 million
+Salt Lake City,SLC,40.78839874,-111.9779968,1 - 2.5 million
+Birmingham,BHM,33.56290054,-86.75350189,1 - 2.5 million
+Buffalo,BUF,42.94049835,-78.73220062,1 - 2.5 million
+Rochester,ROC,43.1189003,-77.67240143,1 - 2.5 million
