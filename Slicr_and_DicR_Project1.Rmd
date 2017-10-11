@@ -1,13 +1,16 @@
 ---
 title: "Slicr and DiceR Project 1"
-author: "Spencer Abbot"
+author: "Spencer Abbot, Chi Cheung, Eric Goldman"
 date: "10/4/2017"
 output: html_document
 ---
 TEST - EG
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
-setwd("/Users/Spencer/Project_1")
+
+#Set Working Directory
+#setwd("/Users/Spencer/Project_1")
+setwd("/Users/ericg/Desktop/DATS 6101/GITHUB/Project_1")
 ```
 
 ```{r map}
