@@ -11,6 +11,7 @@ knitr::opts_chunk$set(echo = TRUE)
 #Set Working Directory
 #setwd("/Users/Spencer/Project_1")
 setwd("/Users/ericg/Desktop/DATS 6101/GITHUB/Project_1")
+#setwd("/Users/Chidog/Project_1")
 ```
 
 ```{r map}
@@ -24,13 +25,13 @@ zoom = 4, source = 'stamen') ggmap(map, fullpage = TRUE);
 library(ggplot2)
 library(maps)
 
-#load us map data
+#US map - data
 all_states <- map_data("state")
 
-#Read in City Lat Long Data
+#Read in Lat Long Data from City
 citylatlong <- data.frame(read.csv("citylatlong.csv"))
 
-#plot all states with ggplot
+#plot US states with ggplot
 p <- ggplot()
 p <- p + geom_polygon( data=all_states, 
 aes(x=long, y=lat, group = group),colour="white", fill="grey10" )
@@ -82,10 +83,11 @@ summary(model.degree)
 TukeyHSD(model.degree)
 plot(citydata)
 plot(citydata$Amazon_HQIndex, citydata$CrimeIndex)
-cor(citydata$Amazon_HQIndex,citydata$CrimeIndex, method="pearson")
+cor(citydata$ZillowHVI,citydata$CrimeIndex, method="pearson")
 cor(citydata$Population,citydata$F500_HQ, method="pearson")
 cor(citydata[,2:4], method="pearson")
-
+qqnorm(citydata[,7])
+qqline (citydata[,7], col=2)
 ```
 
 ```{r, eval=TRUE}
