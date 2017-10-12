@@ -1,0 +1,9 @@
+Fortune 500 Corporate Headquarters, Department of Homeland Security
+https://catalog.data.gov/dataset/fortune-500-corporate-headquarters
+
+2016 Crime in the United States - Federal Bureau of Investigation
+https://ucr.fbi.gov/crime-in-the-u.s/2016/crime-in-the-u.s.-2016/topic-pages/violent-crime
+
+Educational Attainment for 50 Most Populous Metropolitan Areas, Percent with High School Diploma and with Bachelor's Degree: 2010
+American Community Survey
+https://www.census.gov/newsroom/releases/xls/cb12-33table2metro.xls
