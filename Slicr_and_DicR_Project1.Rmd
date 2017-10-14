@@ -26,7 +26,8 @@ install.packages("pastecs", repos="http://cran.rstudio.com/")
 ```
 
 ```{r US MAP PLOT, eval=TRUE}
-# call library for maps and plotting already installed 
+#Plotting Map of the US and the fifty metro cities analyzed
+#Call library for maps and plotting already installed 
 library(ggplot2)
 library(maps)
 
@@ -36,13 +37,13 @@ all_states <- map_data("state")
 #Read in Lat Long Data from City
 citylatlong <- data.frame(read.csv("citylatlong.csv"))
 
-#plot US states using ggplot2
+#Plot US states using ggplot2
 p <- ggplot()
 p <- p + geom_polygon( data=all_states, 
 aes(x=long, y=lat, group = group),colour="white", fill="grey10" )
 p;
 
-# plot data points (lat/long of MSA's) to US map
+#Plot data points (lat/long of MSA's) to US map
 p + geom_point(data=citylatlong, 
 aes(y=LAT, x=LONG, color=Population, size=Population)) +
   ggtitle("US Metro Statistical Areas with Population over 1 million")+
@@ -62,53 +63,59 @@ aes(y=LAT, x=LONG, color=Population, size=Population)) +
 ```
 
 ```{r citystats}
-#read in CityData csv
+#Read in CityData csv and call stats package
 library(stats)
 citydata <- data.frame(read.csv("CityData.csv"))
 
-#CityData Exploration
+#CityData Exploration - 50 obs of 9 variables
 head(citydata)
 str(citydata)
 summary(citydata)
 
-#gather stats for citydata
+#Gather stats for citydata
 library(pastecs)
 stat.desc(citydata)
 
 #Testing for normality
 hist(citydata$Amazon_HQIndex)
 shapiro.test(citydata$Amazon_HQIndex)
+
+
 ```
+P-value is 0.084. Fail to reject normality but there appears to be an outlier.
+Will explore outlier city (Memphis) later in Rmarkdown
 
 ```{r anova}
 #Comparing MLB Team on Amazon HQ Index
 boxplot(citydata$Amazon_HQIndex~citydata$MLB_Team)
+#Appears to be even, using ANOVA to investigate
+
 model.degree <- aov(Amazon_HQIndex~MLB_Team, data = citydata)
 hist(model.degree$residuals, main = "Hist of Res", xlab = "Residuals")
 summary(model.degree)
 TukeyHSD(model.degree)
 x <- lm(Amazon_HQIndex~MLB_Team, data = citydata)
 summary(x)
+#P-value of .318, fail to reject the means are equal. 
+
 
 #CityData Correlation Exploration
-plot(Amazon_HQIndex ~ F500_HQ, data=citydata)
 plot(citydata)
+plot(Amazon_HQIndex ~ F500_HQ, data=citydata)
 plot(citydata$Amazon_HQIndex, citydata$CrimeIndex)
 cor(citydata$ZillowHVI,citydata$CollegeDegree, method="pearson")
 cor(citydata$Amazon_HQIndex,citydata$Population, method="pearson")
 cor(citydata[,2:8], method="pearson")
 qqnorm(citydata[,8], main="Amazon Index Score Q-Q Plot")
 qqline (citydata[,8], col=2)
-shapiro.test(model.degree$residuals)
 ```
 
-Handy Outlier Function
+The last city, Memphis is an outlier among the Amazon HQ Index.
+Will test for the outlier and remove the obs.
+Then will test the normality again which will yield a higher p-value
 
 ```{r, eval=TRUE}
-#The last city, Memphis is an Outlier among the Amazon HQ Index.
-#Will test for the outlier and remove the obs
-#Then will test the normality again which will yield a higher p value
-
+#Outlier Function
 attach(citydata)
 citydata.sort <- citydata[order(Amazon_HQIndex, decreasing = TRUE),]
 detach(citydata)
@@ -143,9 +150,23 @@ outlierKD <- function(dt, var) {
           return(invisible(var_name))
      }
 }
+#test for outlier but will say NO to remove as we will remove it on the next line of code
 outlierKD(citydata.sort, Amazon_HQIndex)
+
+#Remove Memphis
 citydata.sort.remove_Memphis <-citydata.sort[-c(50),]
 hist(citydata.sort.remove_Memphis$Amazon_HQIndex)
 shapiro.test(citydata.sort.remove_Memphis$Amazon_HQIndex)
+#p value of 0.5349. Much different than the earlier .0841
+
+model.degree.sort <- aov(Amazon_HQIndex~MLB_Team, data = citydata.sort.remove_Memphis)
+hist(model.degree.sort$residuals, main = "Hist of Res", xlab = "Residuals")
+summary(model.degree.sort)
+TukeyHSD(model.degree.sort)
+qqnorm(citydata.sort.remove_Memphis[,8], main="Amazon Index Score w/o Outlier Q-Q Plot")
+qqline (citydata.sort.remove_Memphis[,8], col=2)
+
+
+#Removing Memphis 
 
 ```
